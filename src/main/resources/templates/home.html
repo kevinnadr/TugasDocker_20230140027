@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f8f9fa;}
+        h3 { font-size: 18px; margin-bottom: 5px; }
+        p { font-size: 14px; margin-top: 0; }
+        a { text-decoration: none; color: #007bff; font-size: 14px; }
+        .table-title { font-weight: bold; margin-top: 20px; margin-bottom: 10px; font-size: 14px; }
+        table { width: 100%; border-collapse: collapse; background-color: white; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; font-size: 14px; }
+        th { background-color: #007bff; color: white; }
+        .empty-data { text-align: center; padding: 15px; background-color: #f9f9f9; border: 1px solid #ddd; border-top: none; font-size: 14px;}
+        .logout-link { display: inline-block; margin-top: 20px; }
+    </style>
+</head>
+<body>
+<h3>MY Website 20230140027</h3>
+<p>Selamat datang di aplikasi!</p>
+<a href="/form">+ Input Data Mahasiswa</a>
+
+<div class="table-title">Data Mahasiswa</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>NIM</th>
+        <th>Jenis Kelamin</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="mhs, iterStat : ${dataMahasiswa}" th:if="${not #lists.isEmpty(dataMahasiswa)}">
+        <td th:text="${iterStat.count}">1</td>
+        <td th:text="${mhs.nama}">Nama</td>
+        <td th:text="${mhs.nim}">NIM</td>
+        <td th:text="${mhs.jenisKelamin}">Laki-laki</td>
+    </tr>
+    </tbody>
+</table>
+
+<div th:if="${#lists.isEmpty(dataMahasiswa)}" class="empty-data">
+    Belum ada data
+</div>
+
+<a href="/" class="logout-link">Logout</a>
+</body>
+</html>
