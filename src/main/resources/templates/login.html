@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f8f9fa; margin: 0; padding: 20px; }
+        .login-container { background: white; padding: 20px; border: 1px solid #dee2e6; }
+        h3 { margin-top: 0; }
+        label { font-size: 12px; font-weight: bold; }
+        input[type="text"], input[type="password"] {
+            width: 100%; padding: 8px; margin: 5px 0 15px 0; box-sizing: border-box; border: 1px solid #ccc;
+        }
+        button { background-color: #007bff; color: white; border: none; padding: 8px 20px; cursor: pointer; border-radius: 4px; }
+        .error { color: red; font-size: 14px; }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <h3>Login Page</h3>
+    <form action="/login" method="post">
+        <label>Username:</label><br>
+        <input type="text" name="username" required><br>
+
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p class="error" th:if="${error != null}">
+        <span th:text="${error}"></span>
+    </p>
+</div>
+</body>
+</html>
