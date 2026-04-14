@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Input</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f8f9fa; }
+        h3 { font-size: 18px; margin-bottom: 20px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 5px; font-size: 12px; font-weight: bold; }
+        input[type="text"] { width: 100%; padding: 8px; border: 1px solid #ccc; box-sizing: border-box; }
+        .radio-group label { display: block; font-weight: normal; margin-bottom: 8px; font-size: 14px;}
+        button { background-color: #007bff; color: white; border: none; padding: 8px 20px; cursor: pointer; border-radius: 4px; margin-top: 10px; }
+        a { text-decoration: none; color: #007bff; display: block; margin-top: 20px; font-size: 14px; }
+    </style>
+</head>
+<body>
+<h3>Form Input Mahasiswa</h3>
+
+<form action="/submit-form" method="post">
+    <div class="form-group">
+        <label>Nama:</label>
+        <input type="text" name="nama" required>
+    </div>
+
+    <div class="form-group">
+        <label>NIM:</label>
+        <input type="text" name="nim" required>
+    </div>
+
+    <div class="form-group">
+        <label>Jenis Kelamin:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="jenisKelamin" value="Laki-laki" required> Laki-laki</label>
+            <label><input type="radio" name="jenisKelamin" value="Perempuan" required> Perempuan</label>
+        </div>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+
+<a href="/home">Kembali ke Home</a>
+</body>
+</html>
